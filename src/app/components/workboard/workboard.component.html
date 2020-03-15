@@ -1,7 +1,14 @@
-<div draggable="true" (drag)="assignSelect(item)" *ngFor="let item of elements">{{item.type}}</div>
-
-<div (drop)="drop($event)" (dragover)="allowDrop($event)">
-      <app-workboard-element [elementPushed]="finalElement"></app-workboard-element>
-</div>
+<mat-drawer-container class="full-space">
+      
+      <mat-drawer class="sidebar" mode="side" opened>
+            <mat-list>
+                  <mat-list-item class="sidebar-item" draggable="true" (drag)="assignSelect(item)" *ngFor="let item of elements"> {{item.type}} </mat-list-item>
+            </mat-list>
+      </mat-drawer>
+      <mat-drawer-content  (drop)="drop($event)" (dragover)="allowDrop($event)">
+            <app-workboard-element [elementPushed]="finalElement"></app-workboard-element>
+      </mat-drawer-content>
+</mat-drawer-container>
+     
 
 

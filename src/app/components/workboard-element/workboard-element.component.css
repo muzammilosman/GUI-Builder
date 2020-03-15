@@ -4,8 +4,34 @@
 }
 
 .example-list{
-    height: 336px;
-    width: 500px;
+    height: 90%;
+    width: 100%;
     background: rgb(202, 201, 201);
 }
 
+
+.work-area{
+    width: 70%;
+}
+
+.element-params{
+    width: 30%;
+}
+
+.work-area-buttons{
+    position: relative;
+    background-color: white;
+    border-style: solid;
+    border: 0.5px;
+}
+
+
+.local-buttons{
+    position: absolute;
+    right: 0px;       
+}
+
+.delete-button{
+    position: absolute;
+    left: 0px;
+}

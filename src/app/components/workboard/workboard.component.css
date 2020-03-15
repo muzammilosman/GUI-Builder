@@ -1,6 +1,17 @@
-.example-list{
+/* .example-list{
     height: 336px;
     width: 500px;
     background: rgb(202, 201, 201);
+} */
+
+
+.sidebar{
+    width: 15% !important;   
 }
+
+.sidebar-item{
+    border: 0.5px;
+    border-bottom-style: inset;
+}
+
 

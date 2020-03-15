@@ -1,13 +1,21 @@
-<div>
+<div class="parameters">
     <form #elementForm="ngForm">
-        <label>X position</label>
-        <input [(ngModel)]="currentElement.positionX" #ctrl="ngModel" type="number" name="positionX">
+        <div>
+            <label>X position</label>
+            <input [(ngModel)]="currentElement.positionX" #ctrl="ngModel" type="number" name="positionX">
+        </div>
+        
 
-        <label>Y position</label>
-        <input [(ngModel)]="currentElement.positionY" #ctrl="ngModel" type="number" name="positionY">
-
-        <label>Element Type</label>
+        <div>
+            <label>Y position</label>
+            <input [(ngModel)]="currentElement.positionY" #ctrl="ngModel" type="number" name="positionY">
+        </div>
+        
+        <div>
+            <label>Element Type</label>
         <input [(ngModel)]="currentElement.type" #ctrl="ngModel" name="type">
+        </div>
+        
     </form>
         
 

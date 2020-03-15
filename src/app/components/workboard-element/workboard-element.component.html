@@ -1,22 +1,30 @@
-<p>workboard-element works!</p>
-
-<div class="example-list">
-    <div class="example-box" *ngFor="let item of workspace; let i=index" 
-        [cdkDragFreeDragPosition]="{x: item.positionX, y:item.positionY}" 
-        (cdkDragEnded)="dragEnd($event,i)" 
-        cdkDragBoundary=".example-list" 
-        (click)="setActiveElement(item,i)"
-        cdkDrag>
-          
-        <button *ngIf="item.type == 'Button'">New Button</button>
-        <input placeholder="New input" *ngIf="item.type=='Input'" >
-        <div *ngIf="item.type=='Table'">{{item.type}}</div>
+<div class="work-container">
+    <div class="work-area">
+        <div class="example-list">
+            <div class="example-box" *ngFor="let item of workspace; let i=index" 
+                [cdkDragFreeDragPosition]="{x: item.positionX, y:item.positionY}" 
+                (cdkDragEnded)="dragEnd($event,i)" 
+                cdkDragBoundary=".example-list" 
+                (click)="setActiveElement(item,i)"
+                cdkDrag>
+                  
+                <button *ngIf="item.type == 'Button'">New Button</button>
+                <input placeholder="New input" *ngIf="item.type=='Input'" >
+                <div *ngIf="item.type=='Table'">{{item.type}}</div>
+            </div>
+        </div>
+        <div class="work-area-buttons">
+            <div class="delete-button">
+                <button mat-raised-button color="warn">Delete</button>
+            </div>
+            <div class="local-buttons">
+                <button (click)="saveWorkspace()" mat-raised-button color="primary">SAVE</button>
+                <button (click)="resetWorkspace()" mat-raised-button color="primary">RESET</button>
+            </div>
+        </div>
     </div>
-</div>
-
-<button (click)="saveWorkspace()">SAVE</button>
-<button (click)="resetWorkspace()">RESET</button>
-
-<div class="element-params">
-    <app-element-detail [currentElement]="activeElement"></app-element-detail>
+    
+    <div class="element-params">
+        <app-element-detail [currentElement]="activeElement"></app-element-detail>
+    </div>
 </div>
