@@ -1,0 +1,11 @@
+.example-box{
+    width: 50px;
+    position: absolute;
+}
+
+.example-list{
+    height: 336px;
+    width: 500px;
+    background: rgb(202, 201, 201);
+}
+

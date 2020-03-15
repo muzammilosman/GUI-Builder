@@ -1,0 +1,16 @@
+<div>
+    <form #elementForm="ngForm">
+        <label>X position</label>
+        <input [(ngModel)]="currentElement.positionX" #ctrl="ngModel" type="number" name="positionX">
+
+        <label>Y position</label>
+        <input [(ngModel)]="currentElement.positionY" #ctrl="ngModel" type="number" name="positionY">
+
+        <label>Element Type</label>
+        <input [(ngModel)]="currentElement.type" #ctrl="ngModel" name="type">
+    </form>
+        
+
+
+    <!-- <button (click)="updateElement()"> Check observable</button> -->
+</div>

@@ -1,0 +1,22 @@
+<p>workboard-element works!</p>
+
+<div class="example-list">
+    <div class="example-box" *ngFor="let item of workspace; let i=index" 
+        [cdkDragFreeDragPosition]="{x: item.positionX, y:item.positionY}" 
+        (cdkDragEnded)="dragEnd($event,i)" 
+        cdkDragBoundary=".example-list" 
+        (click)="setActiveElement(item,i)"
+        cdkDrag>
+          
+        <button *ngIf="item.type == 'Button'">New Button</button>
+        <input placeholder="New input" *ngIf="item.type=='Input'" >
+        <div *ngIf="item.type=='Table'">{{item.type}}</div>
+    </div>
+</div>
+
+<button (click)="saveWorkspace()">SAVE</button>
+<button (click)="resetWorkspace()">RESET</button>
+
+<div class="element-params">
+    <app-element-detail [currentElement]="activeElement"></app-element-detail>
+</div>

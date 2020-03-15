@@ -1,0 +1,7 @@
+<div draggable="true" (drag)="assignSelect(item)" *ngFor="let item of elements">{{item.type}}</div>
+
+<div (drop)="drop($event)" (dragover)="allowDrop($event)">
+      <app-workboard-element [elementPushed]="finalElement"></app-workboard-element>
+</div>
+
+
