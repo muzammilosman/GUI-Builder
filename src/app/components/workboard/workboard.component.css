@@ -7,11 +7,19 @@
 
 .sidebar{
     width: 15% !important;   
+    background: #f1f1f1;
 }
 
 .sidebar-item{
-    border: 0.5px;
-    border-bottom-style: inset;
+    margin-bottom: 10px;
 }
+
+.sidebar-item-card{
+    color: white;
+    background: #3e4444;
+    width: 100%;
+}
+
+
 
 

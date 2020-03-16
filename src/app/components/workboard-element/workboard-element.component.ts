@@ -15,26 +15,36 @@ export class WorkboardElementComponent implements OnInit {
   };
   activeIndex: any;
 
-  @Input() set elementPushed(val) {
-    if (val !== undefined) {
-    console.log('active element updated:', val);
-    this.workspace.push(val);
-  }
-  }
+  @Input() elementPushed: any;
 
   constructor(private storageService: StorageService) { }
 
   ngOnInit() {
-    this.workspace = this.storageService.getWorkspace();
+    this.workspace = this.storageService.getWorkspace();     // retrieving workspace from localStorage
+  }
 
-    // this.storageService.activeElementObservable.subscribe(el => {
-    //   console.log('Observable working:', el);
-    //   this.workspace[this.activeIndex] = el;
-    // });
+  drop(ev) {
+    ev.preventDefault();
+    console.log('event X:', ev.screenX);
+    console.log('event Y:', ev.screenY);
+    if (ev.screenX > 85 && ev.screenY < 1000) {
+      this.elementPushed.positionX = ev.screenX - 168;
+      this.elementPushed.positionY = ev.screenY - 120;
+      this.workspace.push(this.elementPushed);
+      console.log('Workarea:', this.workspace);
+    }
+    this.checkPosition(this.workspace.length - 1);
+  }
+
+  allowDrop(event: any) {
+    event.preventDefault();
+    // console.log("Dragging event",event)
+    return false;
   }
 
   saveWorkspace() {
     this.storageService.saveWorkspace(this.workspace);
+    alert('Workspace stored to local storage');
   }
 
   resetWorkspace() {
@@ -46,8 +56,7 @@ export class WorkboardElementComponent implements OnInit {
     console.log('Event x:', event.distance.x);
     this.workspace[index].positionX += event.distance.x;
     this.workspace[index].positionY += event.distance.y;
-    console.log('Changed item:', this.workspace[index]);
-    this.setActiveElement(this.workspace[index], index);
+    this.checkPosition(index);
   }
 
   setActiveElement(item, index) {
@@ -55,4 +64,37 @@ export class WorkboardElementComponent implements OnInit {
     this.activeIndex = index;
   }
 
+  preventDrop(event) {
+    event.preventDefault();
+  }
+
+  deleteElement() {
+    this.workspace.splice(this.activeIndex, 1);
+    this.activeElement = {};
+  }
+
+  checkPosition(index) {
+    if (this.workspace[index].positionX < 0) {
+      this.workspace[index].positionX = 0;
+    }
+
+    if (this.workspace[index].positionY < 0) {
+      this.workspace[index].positionY = 0;
+    }
+
+    if (this.workspace[index].positionX > 620) {
+      this.workspace[index].positionX = 620;
+    }
+
+    if (this.workspace[index].positionY > 500) {
+      this.workspace[index].positionY = 500;
+    }
+
+    console.log('Changed item:', this.workspace[index]);
+    this.setActiveElement(this.workspace[index], index);
+  }
+
+  // resetActiveElement() {
+  //   this.activeElement = {};
+  // }
 }

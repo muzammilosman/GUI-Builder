@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +6,6 @@ import { Observable, Subject } from 'rxjs';
 export class StorageService {
 
   constructor() { }
-
-  private activeElementSubject = new Subject<any>();
-  activeElementObservable = this.activeElementSubject.asObservable();
 
   saveWorkspace(workspace) {
     localStorage.setItem('workspace', JSON.stringify(workspace));
@@ -28,7 +24,4 @@ export class StorageService {
     localStorage.clear();
   }
 
-  updateActiveElement(item) {
-    this.activeElementSubject.next(item);
-  }
 }

@@ -1,11 +1,15 @@
 <mat-drawer-container class="full-space">
-      
       <mat-drawer class="sidebar" mode="side" opened>
-            <mat-list>
-                  <mat-list-item class="sidebar-item" draggable="true" (drag)="assignSelect(item)" *ngFor="let item of elements"> {{item.type}} </mat-list-item>
-            </mat-list>
+            
+                  <mat-list>
+                        <mat-list-item class="sidebar-item" *ngFor="let item of elements">
+                              <mat-card class="sidebar-item-card" draggable="true" (drag)="assignSelect(item)">{{item.type}} </mat-card>
+                        </mat-list-item>
+                  </mat-list>
+      
       </mat-drawer>
-      <mat-drawer-content  (drop)="drop($event)" (dragover)="allowDrop($event)">
+
+      <mat-drawer-content >
             <app-workboard-element [elementPushed]="finalElement"></app-workboard-element>
       </mat-drawer-content>
 </mat-drawer-container>

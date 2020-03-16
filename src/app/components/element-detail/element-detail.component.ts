@@ -14,9 +14,5 @@ export class ElementDetailComponent implements OnInit {
   ngOnInit() {
   }
 
-  // updateElement() {
-  //   console.log('updateElement:', this.currentElement);
-  //   this.storageService.updateActiveElement(this.currentElement);
-  // }
 
 }

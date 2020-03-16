@@ -1,6 +1,6 @@
 .example-box{
-    width: 50px;
     position: absolute;
+    padding: 10px;
 }
 
 .example-list{
@@ -12,6 +12,7 @@
 
 .work-area{
     width: 70%;
+    background: #3e4444;
 }
 
 .element-params{
@@ -23,15 +24,27 @@
     background-color: white;
     border-style: solid;
     border: 0.5px;
+    /* height: 80px; */
 }
 
 
 .local-buttons{
     position: absolute;
-    right: 0px;       
+    right: 0px;    
+    margin: 12px;   
+}
+
+.action-button{
+    margin-right: 10px;
 }
 
 .delete-button{
     position: absolute;
     left: 0px;
+    margin: 12px;;
+}
+
+.clickedClass{
+    border-style: dotted;
+    border-width: 0.5px;
 }

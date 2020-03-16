@@ -1,24 +1,64 @@
 <div class="parameters">
     <form #elementForm="ngForm">
-        <div>
-            <label>X position</label>
-            <input [(ngModel)]="currentElement.positionX" #ctrl="ngModel" type="number" name="positionX">
+
+        <div class="element-param">
+            <mat-form-field class="param-field" appearance="fill">
+                <mat-label>X position</mat-label>
+                <input matInput [(ngModel)]="currentElement.positionX" min="0" max="620" #ctrl="ngModel" type="number" name="positionX">
+              </mat-form-field>
         </div>
         
 
-        <div>
-            <label>Y position</label>
-            <input [(ngModel)]="currentElement.positionY" #ctrl="ngModel" type="number" name="positionY">
+        <div class="element-param">
+            <mat-form-field class="param-field" appearance="fill">
+                <mat-label>Y position</mat-label>
+                <input matInput [(ngModel)]="currentElement.positionY" min="0" max="500" #ctrl="ngModel" type="number" name="positionY">
+              </mat-form-field>
         </div>
         
-        <div>
-            <label>Element Type</label>
-        <input [(ngModel)]="currentElement.type" #ctrl="ngModel" name="type">
+        <div class="element-param">
+            <mat-form-field class="param-field" appearance="fill">
+                <mat-label>Element Type</mat-label>
+                <input matInput [(ngModel)]="currentElement.type" #ctrl="ngModel" type="text" name="type" disabled>
+              </mat-form-field>
+        </div>
+
+        <div class="element-param">
+            <mat-form-field class="param-field" appearance="fill">
+                <mat-label>Value</mat-label>
+                <input matInput [(ngModel)]="currentElement.value" #ctrl="ngModel" type="text" name="value">
+              </mat-form-field>
         </div>
         
+        <div class="element-param" *ngIf="currentElement.type == 'Input'">
+            <mat-form-field class="param-field" appearance = "fill">
+                <mat-label>Placeholder</mat-label>
+                <input matInput [(ngModel)]="currentElement.placeholder" #ctrl="ngModel" type="text" name="placeholder">
+              </mat-form-field>
+        </div>
+
+        <div class="element-param">
+            <mat-form-field class="param-field" appearance="fill">
+                <mat-label>Width</mat-label>
+                <input matInput [(ngModel)]="currentElement.width" #ctrl="ngModel" type="text" name="width">
+              </mat-form-field>
+        </div>
+
+        <div class="element-param">
+            <mat-form-field class="param-field" appearance="fill">
+                <mat-label>Height</mat-label>
+                <input matInput [(ngModel)]="currentElement.height" #ctrl="ngModel" type="text" name="height">
+              </mat-form-field>
+        </div>
+
+        <div class="element-param">
+            <mat-form-field class="param-field" appearance="fill">
+                <mat-label>Position</mat-label>
+                <input matInput [(ngModel)]="currentElement.position" #ctrl="ngModel" type="text" name="position">
+              </mat-form-field>
+        </div>
+
     </form>
-        
-
 
     <!-- <button (click)="updateElement()"> Check observable</button> -->
 </div>

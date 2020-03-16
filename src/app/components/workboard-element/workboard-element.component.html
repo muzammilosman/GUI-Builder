@@ -1,30 +1,42 @@
 <div class="work-container">
     <div class="work-area">
-        <div class="example-list">
+        <div class="example-list" (drop)="drop($event)" (dragover)="allowDrop($event)" >
             <div class="example-box" *ngFor="let item of workspace; let i=index" 
                 [cdkDragFreeDragPosition]="{x: item.positionX, y:item.positionY}" 
                 (cdkDragEnded)="dragEnd($event,i)" 
                 cdkDragBoundary=".example-list" 
                 (click)="setActiveElement(item,i)"
+                [class.clickedClass]="item == activeElement"
                 cdkDrag>
                   
-                <button *ngIf="item.type == 'Button'">New Button</button>
-                <input placeholder="New input" *ngIf="item.type=='Input'" >
-                <div *ngIf="item.type=='Table'">{{item.type}}</div>
+                    <button mat-raised-button *ngIf="item.type == 'Button'" [style.width]="item.width" [style.height]="item.height">
+                        {{item.value}}
+                    </button>
+                
+                    <mat-form-field *ngIf="item.type=='Input'" [style.width]="item.width" [style.height]="item.height">
+                        <input matInput placeholder="{{item.placeholder}}" value="{{item.value}}" >
+                    </mat-form-field>
+                    
+                
+                    <h1 *ngIf="item.type=='Heading'" [style.width]="item.width" [style.height]="item.height">
+                        {{item.value}}
+                    </h1>
+
+                    <p *ngIf="item.type=='Paragraph'" [style.position]="item.position" [style.width]="item.width" [style.height]="item.height">{{item.value}}</p>
             </div>
         </div>
         <div class="work-area-buttons">
             <div class="delete-button">
-                <button mat-raised-button color="warn">Delete</button>
+                <button mat-raised-button color="warn" (click)="deleteElement()">DELETE ELEMENT</button>
             </div>
             <div class="local-buttons">
-                <button (click)="saveWorkspace()" mat-raised-button color="primary">SAVE</button>
-                <button (click)="resetWorkspace()" mat-raised-button color="primary">RESET</button>
+                <button (click)="resetWorkspace()" mat-raised-button class="action-button">RESET</button>
+                <button (click)="saveWorkspace()" mat-raised-button color="primary" class="action-button">SAVE</button>
             </div>
         </div>
     </div>
     
-    <div class="element-params">
+    <div class="element-params" (drop)="preventDrop($event)">
         <app-element-detail [currentElement]="activeElement"></app-element-detail>
     </div>
 </div>

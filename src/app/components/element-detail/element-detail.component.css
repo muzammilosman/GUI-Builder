@@ -1,3 +1,11 @@
 .parameters{
     padding: 10px;;
 }
+
+.element-param {
+    width: 100%;
+}
+
+.param-field {
+    width: 100%;
+}
