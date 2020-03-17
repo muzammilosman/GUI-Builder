@@ -37,7 +37,7 @@ The app actively uses the following dependencies :
 
 ## Services
 
-- ### `StorageSerive`
+- ### `StorageService`
     
     This service holds functions to store the current workspace to the browser local storage when it is saved and retrieve the previously saved workspace from the local storage.
 
