@@ -7,7 +7,7 @@ import { StorageService } from '../../services/storage.service';
   styleUrls: ['./element-detail.component.css']
 })
 export class ElementDetailComponent implements OnInit {
-  @Input() currentElement: any;
+  @Input() currentElement: any;                          // Element active
 
   constructor(private storageService: StorageService) { }
 

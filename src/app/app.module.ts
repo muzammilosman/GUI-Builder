@@ -23,11 +23,11 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { WorkboardElementComponent } from './components/workboard-element/workboard-element.component';
 import { WorkboardComponent } from './components/workboard/workboard.component';
 import { ElementDetailComponent } from './components/element-detail/element-detail.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+
 
 // Services
 import { StorageService } from './services/storage.service';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { DialogComponent } from './components/dialog/dialog.component';
 
 
 @NgModule({
@@ -36,8 +36,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
     WorkboardComponent,
     WorkboardElementComponent,
     ElementDetailComponent,
-    NavBarComponent,
-    DialogComponent
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

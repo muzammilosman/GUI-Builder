@@ -1,6 +1,6 @@
 <div class="work-container">
     <div class="work-area">
-        <div class="example-list" (drop)="drop($event)" (dragover)="allowDrop($event)" >
+        <div class="example-list" (drop)="drop($event)" (dragover)="allowDrop($event)" #workbox>
             <div class="example-box" *ngFor="let item of workspace; let i=index" 
                 [cdkDragFreeDragPosition]="{x: item.positionX, y:item.positionY}" 
                 (cdkDragEnded)="dragEnd($event,i)" 

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { StorageService } from '../../services/storage.service';
 
 @Component({
@@ -15,7 +15,9 @@ export class WorkboardElementComponent implements OnInit {
   };
   activeIndex: any;
 
-  @Input() elementPushed: any;
+  @ViewChild('workbox', {static: false}) workbox: ElementRef;
+
+  @Input() elementPushed: any;                  // Value passed to the element-detail component
 
   constructor(private storageService: StorageService) { }
 
@@ -38,7 +40,6 @@ export class WorkboardElementComponent implements OnInit {
 
   allowDrop(event: any) {
     event.preventDefault();
-    // console.log("Dragging event",event)
     return false;
   }
 
@@ -73,7 +74,13 @@ export class WorkboardElementComponent implements OnInit {
     this.activeElement = {};
   }
 
+
+  // Function to contain the elements within the workbox HTML element
+
   checkPosition(index) {
+
+    console.log('Workspace width:', this.workbox.nativeElement.offsetWidth);
+    console.log('Workspace height:', this.workbox.nativeElement.offsetHeight);
     if (this.workspace[index].positionX < 0) {
       this.workspace[index].positionX = 0;
     }
@@ -82,12 +89,12 @@ export class WorkboardElementComponent implements OnInit {
       this.workspace[index].positionY = 0;
     }
 
-    if (this.workspace[index].positionX > 620) {
-      this.workspace[index].positionX = 620;
+    if (this.workspace[index].positionX > this.workbox.nativeElement.offsetWidth - 140) {
+      this.workspace[index].positionX = this.workbox.nativeElement.offsetWidth - 140;
     }
 
-    if (this.workspace[index].positionY > 500) {
-      this.workspace[index].positionY = 500;
+    if (this.workspace[index].positionY > this.workbox.nativeElement.offsetHeight - 60) {
+      this.workspace[index].positionY = this.workbox.nativeElement.offsetHeight - 60;
     }
 
     console.log('Changed item:', this.workspace[index]);

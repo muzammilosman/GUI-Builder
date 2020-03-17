@@ -1,6 +1,6 @@
-# GB
+# GUI Builder
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0. The project is aimed to enable a drag and drop feature for static HTML elements and prepare a workspace.
 
 ## Development server
 

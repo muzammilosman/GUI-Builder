@@ -7,6 +7,9 @@ import { StorageService } from '../../services/storage.service';
   styleUrls: ['./workboard.component.css']
 })
 export class WorkboardComponent implements OnInit {
+
+  // Element Models
+
   elements = [
     { type: 'Input',
       positionX: 0,
