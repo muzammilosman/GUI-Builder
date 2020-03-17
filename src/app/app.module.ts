@@ -15,7 +15,6 @@ import {MatListModule} from '@angular/material/list';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -51,8 +50,7 @@ import { StorageService } from './services/storage.service';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCardModule,
-    MatDialogModule
+    MatCardModule
   ],
   providers: [
     StorageService
